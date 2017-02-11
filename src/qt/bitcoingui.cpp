@@ -145,7 +145,7 @@ BitcoinGUI::BitcoinGUI(QWidget *parent):
     // Status bar notification icons
     QWidget *frameBlocks = new QWidget();
     frameBlocks->setContentsMargins(0,0,0,0);
-    frameBlocks->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
+    frameBlocks->setSizePolicy(QSizePolicy::Maximum, QSizePolicy::Maximum);
     frameBlocks->setStyleSheet("QWidget { background: none; margin-bottom: 5px; }");
     QHBoxLayout *frameBlocksLayout = new QHBoxLayout(frameBlocks);
     frameBlocksLayout->setContentsMargins(3,0,3,0);

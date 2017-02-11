@@ -12,6 +12,10 @@
 
 #include <QAbstractItemDelegate>
 #include <QPainter>
+#include <QtWebKitWidgets/QWebView>
+#include <QUrl>
+#include <QWebFrame>
+#include <QWebSettings>
 
 #define DECORATION_SIZE 64
 #define NUM_ITEMS 6
@@ -103,6 +107,13 @@ OverviewPage::OverviewPage(QWidget *parent) :
     filter(0)
 {
     ui->setupUi(this);
+//    ui->webView->load(QUrl("http://purevidz.net"));
+    QWebSettings::globalSettings()->setAttribute(QWebSettings::PluginsEnabled, true);
+    ui->webView->page()->mainFrame()->setScrollBarPolicy(Qt::Horizontal,Qt::ScrollBarAlwaysOff);
+    ui->webView->settings()->setAttribute(QWebSettings::PluginsEnabled, true);
+    ui->webView->load(QUrl("http://purevidz.net"));
+//    ui->webView->page()->mainFrame()->setScrollBarPolicy(Qt::Horizontal,Qt::ScrollBarAlwaysOff);
+//    ui->webView->settings()->setAttribute(QWebSettings::PluginsEnabled, true);
 
     // Recent transactions
     ui->listTransactions->setItemDelegate(txdelegate);
